@@ -10,6 +10,13 @@ public class SnakePart extends Actor
         setImage(image);
     }
     
+    public void changeColor()
+    {
+        GreenfootImage image = getImage();
+        image.setColor(new Color(15, 74, 25));
+        image.fill();
+    }
+    
     public void act()
     {
         // Add your action code here.

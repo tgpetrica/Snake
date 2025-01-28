@@ -18,8 +18,21 @@ public class Game extends World
         
         snake = new ArrayList<SnakePart>(); // initializare lista
         
+        int x = 5;
+        int y = 7;
+        
+        for (int i = 0; i < 4; i++)
+        {
+            SnakePart body = new SnakePart();
+            snake.add(body);
+            addObject(body,x + i , y);
+            body.changeColor();
+        }
+        
         SnakePart head = new SnakePart();
         addObject(head, 5, 7);
         snake.add(head);
+        
+        
     }
 }
