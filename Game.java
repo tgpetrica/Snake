@@ -64,5 +64,17 @@ public class Game extends World
                     break;
             }
         }
+        SnakePart head = snake.get(snake.size() - 1);
+        head.changeColor();
+        SnakePart newHead = new SnakePart();
+        snake.add(newHead);
+        int x = head.getX() + dx;
+        int y = head.getY() + dy;
+        addObject(newHead, x, y);
+
+        //snake.remove(0);
+        SnakePart tail = snake.get(0);
+        removeObject(tail);
+        snake.remove(0);
     }
 }
