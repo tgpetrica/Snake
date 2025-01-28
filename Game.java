@@ -4,6 +4,9 @@ import java.util.ArrayList;
 public class Game extends World
 {
     ArrayList<SnakePart> snake;
+    
+    int dx = -1;
+    int dy = 0;
     public Game()
     {
         super(30, 20, 20); 
@@ -34,5 +37,32 @@ public class Game extends World
         snake.add(head);
         
         
+    }
+    
+    public void act()
+    {
+        String key = Greenfoot.getKey();
+        if (key != null)
+        {
+            switch(key)
+            {
+                case "w":
+                    dx = 0;
+                    dy = -1;
+                    break;
+                case "a":
+                    dx = -1;
+                    dy = 0;
+                    break;
+                case "s":
+                    dx = 0;
+                    dy = 1;
+                    break;
+                case "d":
+                    dx = 1;
+                    dy = 0;
+                    break;
+            }
+        }
     }
 }

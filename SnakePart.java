@@ -5,7 +5,7 @@ public class SnakePart extends Actor
     public SnakePart()
     {
         GreenfootImage image = new GreenfootImage(20,20);
-        image.setColor(new Color(15, 105, 30));
+        image.setColor(new Color(15, 195, 30));
         image.fill();
         setImage(image);
     }
