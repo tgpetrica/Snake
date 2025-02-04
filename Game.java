@@ -7,6 +7,8 @@ public class Game extends World
     
     int dx = -1;
     int dy = 0;
+    
+    private int grow = 0;
     public Game()
     {
         super(30, 20, 20); 
@@ -73,14 +75,51 @@ public class Game extends World
         int x = head.getX() + dx;
         int y = head.getY() + dy;
         
-        //
+        if(x >= getWidth())
+        {
+            x = 0;
+        }
+        if (x < 0)
+        {
+            x = getWidth() - 1;
+        }
+        if (y >= getHeight())
+        {
+            y = 0;
+        }
+        if (y < 0)
+        {
+            y = getHeight() - 1;
+        }
+        
         
         addObject(newHead, x, y);
         
 
         //snake.remove(0);
+        /*
         SnakePart tail = snake.get(0);
         removeObject(tail);
         snake.remove(0);
+        */
+        if (grow > 0)
+        {
+            grow --;
+        } else {
+            SnakePart tail = snake.get(0);
+            removeObject(tail);
+            snake.remove(0);
+        }
+        
+        if(snake.size() >= getWidth() * getHeight())
+        {
+            addObject(new Message("You won!", Color.BLACK), getWidth() / 2, getHeight() / 2);
+            Greenfoot.stop();
+        }
+    }
+    
+    public void growSnake()
+    {
+        grow = 1;
     }
 }

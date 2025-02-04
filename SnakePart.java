@@ -19,6 +19,9 @@ public class SnakePart extends Actor
     
     public void act()
     {
-        // Add your action code here.
+        if (isTouching(SnakePart.class))
+        {
+            Greenfoot.stop();
+        }
     }
 }

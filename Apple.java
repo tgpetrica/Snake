@@ -11,4 +11,16 @@ public class Apple extends Actor
         image.fillRect(8,-5,4,10);
         setImage(image);
     }
+    
+    public void act()
+    {
+        if (isTouching(SnakePart.class))
+        {
+            Game world = (Game) getWorld();
+            int newX = Greenfoot.getRandomNumber(world.getWidth());
+            int newY = Greenfoot.getRandomNumber(world.getHeight());
+            setLocation(newX, newY);
+            world.growSnake();
+        }
+    }
 }
