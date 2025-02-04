@@ -62,6 +62,8 @@ public class Game extends World
                     dx = 1;
                     dy = 0;
                     break;
+                default:
+                    ;
             }
         }
         SnakePart head = snake.get(snake.size() - 1);
@@ -70,7 +72,11 @@ public class Game extends World
         snake.add(newHead);
         int x = head.getX() + dx;
         int y = head.getY() + dy;
+        
+        //
+        
         addObject(newHead, x, y);
+        
 
         //snake.remove(0);
         SnakePart tail = snake.get(0);
